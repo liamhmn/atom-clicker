@@ -17,7 +17,7 @@ import Upgrade, {ConditionType, UpgradeType} from './Upgrade'
 export default class Game implements JSONable {
 	private static defaultBuyables: [buildings: Building[], upgrades: Upgrade<UpgradeType, ConditionType>[]] = [[], []]
 	public atomsCount: BigFloat = new BigFloat(0)
-	public atomsPerClicks: number = 1
+	public atomsPerClicks: number = 1000
 	public atomsPerClicksAPSBoost: number = 0
 	public atomsPerSecond: BigFloat = new BigFloat(0)
 	public buildings: Building[] = []
@@ -164,7 +164,7 @@ export default class Game implements JSONable {
 						{
 							kind: 'building',
 							building: building.name,
-							multiplier: level / 10,
+							multiplier: level / 1,
 						},
 						{
 							kind: 'building',
@@ -182,7 +182,7 @@ export default class Game implements JSONable {
 					{
 						name: `${level} clicks !`,
 						description: `You have clicked ${level} times.`,
-						price: level * 10,
+						price: level * 1,
 					},
 					{
 						kind: 'clicks',
@@ -202,7 +202,7 @@ export default class Game implements JSONable {
 					{
 						name: `${level} atoms generated.`,
 						description: `You have generated ${level} total atoms.`,
-						price: level * 10,
+						price: level * 1,
 					},
 					{
 						kind: 'buildingGlobal',
@@ -222,7 +222,7 @@ export default class Game implements JSONable {
 					{
 						name: `Rare Atom ${level} !`,
 						description: `You can now buy a new rare atom.`,
-						price: 10 ** level,
+						price: 1 ** level,
 					},
 					{
 						kind: 'clickAPS',
